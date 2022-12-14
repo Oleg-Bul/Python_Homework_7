@@ -1,29 +1,22 @@
-def choose_mode():
-    """Запрос выбора игры"""
-    mode = ''
-    print('Для игры в крестики-нолики - введите "1"')
-    print('Для игры в конфеты - введите "2"')
-    x = int(input('Выберите игру: '))
-    if 0 < x and x < 3:
-        if x == 1:
-            mode = 'Крестики нолики'
-            print('Вы выбрали игру: Крестики нолики ')
-        elif x == 2:
-            mode = 'Конфеты'
-            print('Вы выбрали игру: Конфеты')
-    else:
-        print('Введите число 1 или 2')
-    return mode
+def cont_to_search():
+    """Поиск контактов"""
+    search_entered = input('Введите фамилию контакта: ')
+    return search_entered
 
 
-def show_results(result):
-    """Вывод результатов игры"""
-    if result == 1:
-        print('Победил игрок 1')
-    elif result == 2:
-        print('Победил игрок 2')
-    elif result == 0:
-        print('Ничья')
-    else:
-        print('Ошибка')
-    print(result)
+def show_contacts(to_search, result):
+    """Вывод фамилии и номера контакта """
+    print('Номер вашего контакта - ', to_search, ':', result)
+
+
+def added_contact(to_search):
+    """Предлагает добавить несуществующий контакт"""
+    print('Данного контакта не сущеествует в списке!')
+    new_number = input(f'Если желаете добавить новый контакт - введите\
+номер контакта "{to_search}": ')
+    return new_number
+
+
+def contact_write(to_search, new_contact):
+    """Уведомляет о добавлении контакта в справочник"""
+    print(f'Контакт "{to_search}" c номером "{new_contact}" добавлен в файл')

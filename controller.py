@@ -3,13 +3,14 @@ import view
 import logger
 
 
-# def run():
-#     mode = view.choose_mode()
-#     if mode == 'Крестики нолики':
-#         result = model.run_game()
-#         view.show_results(result)
-#         logger.log_result(result)
-#     if mode == 'Конфеты':
-#         result = game2.run_game()
-#         view.show_results(result)
-#         logger.log_result(result)
+def run():
+    # new_contact = ''
+    to_search = view.cont_to_search()
+    base = logger.get_base()
+    result_search = model.search_data(base, to_search)
+    if result_search != 0:
+        view.show_contacts(to_search, result_search)
+    else:
+        new_contact = view.added_contact(to_search)
+        logger.added_number(to_search, new_contact)
+        view.contact_write(to_search, new_contact)
